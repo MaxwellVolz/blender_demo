@@ -1,6 +1,16 @@
+
+
+- [Setup](#setup)
+  - [VSCode](#vscode)
+  - [Installing Node.js and npm](#installing-nodejs-and-npm)
+  - [Installing app dependencies](#installing-app-dependencies)
+  - [Run the app](#run-the-app)
+  - [How to: Convert Models](#how-to-convert-models)
+  - [How to: Convert Models (Older)](#how-to-convert-models-older)
+
 # Setup
 
-## VSCode
+## [VSCode](https://code.visualstudio.com/download)
 
 
 ## Installing Node.js and npm
@@ -17,19 +27,51 @@ node -v
 npm -v
 ```
 
-## Convert a model
+## Installing app dependencies
 
-1. In Blender Export to `.glb`
+In your project folder:
+
+```bash
+npm install
+```
+
+## Run the app
+
+```bash
+npm start
+```
+
+## How to: Convert Models
+
+1. In Blender Export to `file_name.glb`
 2. Copy to `/public`
 
 ```bash
-npx gltfjsx public/globe.glb
+npm run convert-model file_name.glb
 ```
 
-1. Move the `Globe.jsx` -> `/models`
-2. Edit the `Globe.jsx`:
+3. In `src/App.js` change the import statement to `file_name`
+
+```bash
+import Model from './models/globe';
+
+# Change to
+
+import Model from ./models/file_name
+```
+
+Reload app
+
+## How to: Convert Models (Older)
+
+```bash
+npx --shadows public/{file_name}.glb --output src/models/{file_name}.jsx
+```
+
+Edit the `{file_name}.jsx`:
 
 ```js
+export function Model(props) 
+// becomes
 export default function Model(props) {
 ```
-

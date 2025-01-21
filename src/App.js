@@ -1,4 +1,4 @@
-import Model from './models/Globe';
+import Model from './models/globe';
 import { OrbitControls } from '@react-three/drei'
 import { Canvas, useThree } from '@react-three/fiber'
 
